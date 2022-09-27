@@ -1,28 +1,34 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <DemoTasks v-for="(task, index) in tasks" :key="index" :taskData="task" />
+    <hr />
+    <DemoTag />
+    <hr />
+    <DemoFormat />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import DemoTasks from "./components/DemoTasks.vue";
+import DemoTag from "./components/DemoTag.vue";
+import DemoFormat from "./components/DemoFormat.vue";
 export default {
-  name: 'App',
+  data() {
+    return {
+      tasks: [
+        { content: "ăn cơm", done: false },
+        { content: "code", done: false },
+        { content: "nau an", done: false },
+        { content: "di ngu", done: false },
+      ],
+    };
+  },
   components: {
-    HelloWorld
-  }
-}
+    DemoTasks,
+    DemoTag,
+    DemoFormat
+},
+};
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+<style></style>
